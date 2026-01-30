@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الياس محمد – صانع محتوى ومتخصص في تطوير المهارات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --light-color: #f8f9fa;
+            --dark-color: #2c3e50;
+            --gray-color: #95a5a6;
+            --success-color: #2ecc71;
+            --accent-color: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-left: 8px;
+            font-size: 28px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-right: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .menu-toggle i {
+            font-size: 24px;
+            color: var(--dark-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9), rgba(41, 128, 185, 0.9)), url('https://sfile.chatglm.cn/images-ppt/66d14c6e7220.png');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: white;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .hero-image i {
+            font-size: 100px;
+            color: var(--primary-color);
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .about-text p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .skill-badge {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-badge:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .skill-badge i {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .skill-card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(52, 152, 219, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover .skill-card-icon {
+            background-color: var(--primary-color);
+        }
+        
+        .skill-card:hover .skill-card-icon i {
+            color: white;
+        }
+        
+        .skill-card-icon i {
+            font-size: 30px;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+        
+        .skill-card-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .skill-card-list {
+            list-style: none;
+        }
+        
+        .skill-card-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-card-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .skill-card-list li i {
+            color: var(--primary-color);
+            margin-left: 10px;
+            font-size: 18px;
+        }
+        
+        .skill-level {
+            margin-top: 15px;
+        }
+        
+        .skill-level-bar {
+            height: 8px;
+            background-color: rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-level-progress {
+            height: 100%;
+            background: linear-gradient(to left, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+            animation: progressAnimation 2s ease-in-out;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-btn {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .portfolio-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-image {
+            height: 250px;
+            background-color: rgba(52, 152, 219, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .portfolio-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+            z-index: 1;
+        }
+        
+        .portfolio-image i {
+            font-size: 80px;
+            color: var(--primary-color);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .portfolio-content {
+            padding: 25px;
+        }
+        
+        .portfolio-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .portfolio-description {
+            font-size: 16px;
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .portfolio-link:hover {
+            color: var(--secondary-color);
+        }
+        
+        .portfolio-link i {
+            margin-right: 5px;
+        }
+        
+        /* Certificates Section */
+        .certificates-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .certificate-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certificate-image {
+            height: 200px;
+            background-color: rgba(52, 152, 219, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .certificate-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(41, 128, 185, 0.1));
+            z-index: 1;
+        }
+        
+        .certificate-image i {
+            font-size: 80px;
+            color: var(--primary-color);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .certificate-content {
+            padding: 20px;
+        }
+        
+        .certificate-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .certificate-date {
+            font-size: 14px;
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+        
+        .certificate-issuer {
+            font-size: 16px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.05), rgba(41, 128, 185, 0.05));
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+        
+        .contact-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: rgba(52, 152, 219, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover .contact-icon {
+            background-color: var(--primary-color);
+        }
+        
+        .contact-item:hover .contact-icon i {
+            color: white;
+        }
+        
+        .contact-icon i {
+            font-size: 30px;
+            color: var(--primary-color);
+            transition: color 0.3s ease;
+        }
+        
+        .contact-text h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .contact-text p {
+            font-size: 16px;
+            color: var(--gray-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(52, 152, 219, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .social-link i {
+            font-size: 24px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo i {
+            margin-left: 8px;
+            font-size: 28px;
+        }
+        
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+        
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes progressAnimation {
+            from {
+                width: 0;
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                transition: right 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="material-icons">person</i>
+                الياس محمد
+            </a>
+            <button class="menu-toggle">
+                <i class="material-icons">menu</i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">الصفحة الرئيسية</a></li>
+                    <li><a href="#about">عني</a></li>
+                    <li><a href="#programming">البرمجة</a></li>
+                    <li><a href="#design">التصميم</a></li>
+                    <li><a href="#sports">الرياضة</a></li>
+                    <li><a href="#projects">المشاريع</a></li>
+                    <li><a href="#certificates">الشهادات</a></li>
+                    <li><a href="#contact">تواصل معي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-image">
+                <i class="material-icons">person</i>
+            </div>
+            <h1>مرحبًا، أنا الياس محمد</h1>
+            <p>طالب ومتخصص في الرياضيات والإعلام الآلي وصانع محتوى يركز على البرمجة، التصميم، الرياضة، والمشاريع العلمية.</p>
+            <a href="#about" class="cta-button">اكتشف مهاراتي</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>عني</h2>
+                <p>تعرف على قصتي وخبراتي في مختلف المجالات</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="3.png" alt="الياس محمد">
+                </div>
+                <div class="about-text">
+                    <h3>طالب في الرياضيات والإعلام الآلي</h3>
+                    <p>أنا طالب في الرياضيات والإعلام الآلي، أركز على تطوير نفسي بشكل متكامل بين التقنية، الإبداع، الرياضة، والمشاركات العلمية.</p>
+                    <p>هنا ستجد كل أعمالي ومشاريعي ومحتوى تعليمي يهدف لإلهام وتطوير مهاراتك.</p>
+                    <div class="skills-list">
+                        <div class="skill-badge"><i class="material-icons">code</i> البرمجة</div>
+                        <div class="skill-badge"><i class="material-icons">brush</i> التصميم</div>
+                        <div class="skill-badge"><i class="material-icons">fitness_center</i> الرياضة</div>
+                        <div class="skill-badge"><i class="material-icons">science</i> المشاريع العلمية</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programming Skills Section -->
+    <section id="programming" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>مهارات البرمجة</h2>
+                <p>اللغات والأدوات التي أتقنها في تطوير البرمجيات</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class="material-icons">code</i>
+                        </div>
+                        <h3 class="skill-card-title">لغات البرمجة</h3>
+                    </div>
+                    <ul class="skill-card-list">
+                        <li><i class="material-icons">check_circle</i> C</li>
+                        <li><i class="material-icons">check_circle</i> HTML</li>
+                        <li><i class="material-icons">check_circle</i> CSS</li>
+                        <li><i class="material-icons">check_circle</i> JavaScript</li>
+                        <li><i class="material-icons">check_circle</i> PHP</li>
+                        <li><i class="material-icons">check_circle</i>فهم منطق البرمجة (Conditions – Loops – Functions)</li>
+                        <li><i class="material-icons">check_circle</i>التعامل مع CRUD (إضافة، تعديل، حذف، عرض)</li>
+                        <li><i class="material-icons">check_circle</i>ربط الواجهة الأمامية بالخلفية (Front ↔ Back)</li>
+                        <li><i class="material-icons">check_circle</i>لتعامل مع Forms و Validation</li>
+                        <li><i class="material-icons">check_circle</i>أساسيات الأمن (Sessions – Login – Password Hashing)</li>
+                        <li><i class="material-icons">check_circle</i>تنظيم المشاريع البرمجية</li>
+
+                    </ul>
+                    <div class="skill-level">
+                        <div class="skill-level-bar">
+                            <div class="skill-level-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class="material-icons">storage</i>
+                        </div>
+                        <h3 class="skill-card-title">قواعد البيانات</h3>
+                    </div>
+                    <ul class="skill-card-list">
+                        <li><i class="material-icons">check_circle</i> MySQL</li>
+                        <li><i class="material-icons">check_circle</i> MongoDB</li>
+                        <li><i class="material-icons">check_circle</i> SQLite</li>
+                        <li><i class="material-icons">check_circle</i>تصميم قواعد البيانات</li>
+                        <li><i class="material-icons">check_circle</i>العلاقات (Relations)</li>
+                        <li><i class="material-icons">check_circle</i>Queries (SELECT – JOIN – UPDATE…)</li>
+                        <li><i class="material-icons">check_circle</i>تحسين بسيط للأداء</li>
+
+                    </ul>
+                    <div class="skill-level">
+                        <div class="skill-level-bar">
+                            <div class="skill-level-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class="material-icons">build</i>
+                        </div>
+                        <h3 class="skill-card-title">أدوات التطوير</h3>
+                    </div>
+                    <ul class="skill-card-list">
+                        <li><i class="material-icons">check_circle</i> Git</li>
+                        <li><i class="material-icons">check_circle</i> VS Code</li>
+                        <li><i class="material-icons">check_circle</i> Docker</li>
+                        <li><i class="material-icons">check_circle</i>إدارة المشاريع البرمجية الصغيرة</li>
+                        <li><i class="material-icons">check_circle</i>العمل بنظام MVC (مفهومًا)</li>
+                        <li><i class="material-icons">check_circle</i>استخدام Terminal / Command Line (أساسيات)</li>
+                        <li><i class="material-icons">check_circle</i>Deployment بسيط (رفع موقع على استضافة)</li>
+
+                    </ul>
+                    <div class="skill-level">
+                        <div class="skill-level-bar">
+                            <div class="skill-level-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design & Editing Section -->
+    <section id="design" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>التصميم والمونتاج</h2>
+                <p>مهاراتي في التصميم البصري ومونتاج الفيديو</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class="material-icons">palette</i>
+                        </div>
+                        <h3 class="skill-card-title">التصميم البصري</h3>
+                    </div>
+                    <ul class="skill-card-list">
+                        <li><i class="material-icons">check_circle</i> تصميم احترافي للمشاريع</li>
+                        <li><i class="material-icons">check_circle</i> تصميم واجهات المستخدم</li>
+                        <li><i class="material-icons">check_circle</i> تصميم الشعارات والعلامات التجارية</li>
+                        <li><i class="material-icons">check_circle</i>فهم الهوية البصرية</li>
+                        <li><i class="material-icons">check_circle</i>اختيار الألوان والخطوط</li>
+                        <li><i class="material-icons">check_circle</i>تصميم محتوى للسوشيال ميديا</li>
+                        <li><i class="material-icons">check_circle</i>Design Thinking (تفكير تصميمي)</li>
+
+                    </ul>
+                    <div class="skill-level">
+                        <div class="skill-level-bar">
+                            <div class="skill-level-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class="material-icons">videocam</i>
+                        </div>
+                        <h3 class="skill-card-title">المونتاج</h3>
+                    </div>
+                    <ul class="skill-card-list">
+                        <li><i class="material-icons">check_circle</i> مونتاج فيديوهات تعليمية</li>
+                        <li><i class="material-icons">check_circle</i> مونتاج فيديوهات إبداعية</li>
+                        <li><i class="material-icons">check_circle</i> استخدام Canva وCapCut</li>
+                        <li><i class="material-icons">check_circle</i>Storytelling بصري</li>
+                        <li><i class="material-icons">check_circle</i>تحسين الصوت (Noise – Cuts)</li>
+                        <li><i class="material-icons">check_circle</i>إيقاع الفيديو</li>
+                        <li><i class="material-icons">check_circle</i>مونتاج محتوى تعليمي موجه</li>
+
+                    </ul>
+                    <div class="skill-level">
+                        <div class="skill-level-bar">
+                            <div class="skill-level-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sports Section -->
+    <section id="sports" class="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>الرياضة واللياقة</h2>
+                <p>خبرتي في مجال الرياضة وتطوير اللياقة البدنية</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class="material-icons">pool</i>
+                        </div>
+                        <h3 class="skill-card-title">السباحة</h3>
+                    </div>
+                    <ul class="skill-card-list">
+                        <li><i class="material-icons">check_circle</i> 8 سنوات خبرة</li>
+                        <li><i class="material-icons">check_circle</i> تقنيات متقدمة</li>
+                        <li><i class="material-icons">check_circle</i> سباحة تنافسية</li>
+                    </ul>
+                    <div class="skill-level">
+                        <div class="skill-level-bar">
+                            <div class="skill-level-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class="material-icons">sports_tennis</i>
+                        </div>
+                        <h3 class="skill-card-title">التنس</h3>
+                    </div>
+                    <ul class="skill-card-list">
+                        <li><i class="material-icons">check_circle</i> مهارات أساسية ومتقدمة</li>
+                        <li><i class="material-icons">check_circle</i> استراتيجيات اللعب</li>
+                    </ul>
+                    <div class="skill-level">
+                        <div class="skill-level-bar">
+                            <div class="skill-level-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-card-header">
+                        <div class="skill-card-icon">
+                            <i class="material-icons">fitness_center</i>
+                        </div>
+                        <h3 class="skill-card-title">اللياقة البدنية</h3>
+                    </div>
+                    <ul class="skill-card-list">
+                        <li><i class="material-icons">check_circle</i> تطوير القوة والتحمل</li>
+                        <li><i class="material-icons">check_circle</i> روتين تدريبي منتظم</li>
+                        <li><i class="material-icons">check_circle</i> التغذية الرياضية</li>
+                    </ul>
+                    <div class="skill-level">
+                        <div class="skill-level-bar">
+                            <div class="skill-level-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <!-- <section id="projects" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>المشاريع والمشاركات العلمية</h2>
+                <p>أبرز المشاريع التي عملت عليها والمؤتمرات التي شاركت فيها</p>
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="programming">البرمجة</button>
+                <button class="filter-btn" data-filter="design">التصميم</button>
+                <button class="filter-btn" data-filter="scientific">علمي</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="programming">
+                    <div class="portfolio-image">
+                        <i class="material-icons">web</i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">منصة تعليمية تفاعلية</h3>
+                        <p class="portfolio-description">تطوير منصة ويب لتوفير محتوى تعليمي تفاعلي للطلاب.</p>
+                        <a href="#" class="portfolio-link">عرض المشروع <i class="material-icons">arrow_back</i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="programming">
+                    <div class="portfolio-image">
+                        <i class="material-icons">analytics</i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">تحليل البيانات الرياضية</h3>
+                        <p class="portfolio-description">مشروع لتحليل أداء الرياضيين باستخدام تقنيات الذكاء الاصطناعي.</p>
+                        <a href="#" class="portfolio-link">عرض المشروع <i class="material-icons">arrow_back</i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="scientific">
+                    <div class="portfolio-image">
+                        <i class="material-icons">school</i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">مشاركة في مؤتمر علمي</h3>
+                        <p class="portfolio-description">عرض بحث حول تطبيقات الرياضيات في علوم الحاسب.</p>
+                        <a href="#" class="portfolio-link">عرض التفاصيل <i class="material-icons">arrow_back</i></a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="design">
+                    <div class="portfolio-image">
+                        <i class="material-icons">brush</i>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3 class="portfolio-title">سلسلة فيديوهات تعليمية</h3>
+                        <p class="portfolio-description">مونتاج وتصميم سلسلة فيديوهات تعليمية في مجال البرمجة.</p>
+                        <a href="#" class="portfolio-link">عرض الأعمال <i class="material-icons">arrow_back</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <div class="section-title">
+                <h2>الشهادات والتكريمات</h2>
+                <p>الشهادات الأكاديمية والتقديرات التي حصلت عليها</p>
+            </div>
+            <div class="certificates-container">
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <i class="material-icons">language</i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">شهادة مستوى A في الإنجليزية</h3>
+                        <p class="certificate-date">2022</p>
+                        <p class="certificate-issuer">مركز اختبارات اللغة الإنجليزية</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <i class="material-icons">military_tech</i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">شهادة تكريم من مؤتمر علمي</h3>
+                        <p class="certificate-date">2023</p>
+                        <p class="certificate-issuer">المؤتمر الدولي للرياضيات التطبيقية</p>
+                    </div>
+                </div>
+                <div class="certificate-card">
+                    <div class="certificate-image">
+                        <i class="material-icons">workspace_premium</i>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">تقدير أكاديمي للمشاريع</h3>
+                        <p class="certificate-date">2023</p>
+                        <p class="certificate-issuer">جامعة العلوم والتكنولوجيا</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>تواصل معي</h2>
+                <p>لا تتردد في التواصل معي لأي استفسار أو فرصة تعاون</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="material-icons">phone</i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>الهاتف</h4>
+                            <p>0696305253</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="material-icons">email</i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>البريد الإلكتروني</h4>
+                            <p>moustirimohammedilyes@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="material-icons">location_on</i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>الموقع</h4>
+                            <p>عين تموشنت</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="material-icons">camera_alt</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3 class="footer-logo">
+                        <i class="material-icons">person</i>
+                        الياس محمد
+                    </h3>
+                    <p class="footer-text">صانع محتوى ومتخصص في تطوير المهارات في مجالات البرمجة، التصميم، الرياضة، والمشاريع العلمية.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الصفحة الرئيسية</a></li>
+                        <li><a href="#about">عني</a></li>
+                        <li><a href="#programming">البرمجة</a></li>
+                        <li><a href="#design">التصميم</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>المزيد من الروابط</h4>
+                    <ul>
+                        <li><a href="#sports">الرياضة</a></li>
+                        <li><a href="#projects">المشاريع</a></li>
+                        <li><a href="#certificates">الشهادات</a></li>
+                        <li><a href="#contact">تواصل معي</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>تابعني</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="material-icons">camera_alt</i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 الياس محمد. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Portfolio Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+        
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.skill-card, .portfolio-item, .certificate-card');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initial setup for animation
+        document.querySelectorAll('.skill-card, .portfolio-item, .certificate-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        // Run animation on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on page load
+    </script>
+</body>
+</html>
